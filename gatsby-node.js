@@ -21,7 +21,7 @@ exports.sourceNodes = async (
   const { createNode, createParentChildLink } = actions
   const cockpit = new CockpitService(
     configOptions.baseUrl,
-    configOptions.baseImageUrl,
+    configOptions.baseImgUrl,
     configOptions.token,
     configOptions.locales,
     configOptions.collections,
