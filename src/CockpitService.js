@@ -13,6 +13,7 @@ const getFieldsOfTypes = require('./helpers.js').getFieldsOfTypes
 module.exports = class CockpitService {
   constructor(
     baseUrl,
+    baseImgUrl,
     token,
     locales,
     whiteListedCollectionNames = [],
@@ -20,6 +21,7 @@ module.exports = class CockpitService {
     aliases = {}
   ) {
     this.baseUrl = baseUrl
+    this.baseImgUrl = baseImgUrl || baseUrl
     this.token = token
     this.locales = locales
     this.whiteListedCollectionNames = whiteListedCollectionNames
@@ -217,7 +219,7 @@ module.exports = class CockpitService {
         }
 
         if (path.startsWith('/')) {
-          path = `${this.baseUrl}${path}`
+          path = `${this.baseImgUrl}${path}`
         } else if (!path.startsWith('http')) {
           path = `${this.baseUrl}/${path}`
         }
@@ -237,7 +239,7 @@ module.exports = class CockpitService {
           trimGalleryImageField(galleryImageField)
 
           if (path.startsWith('/')) {
-            path = `${this.baseUrl}${path}`
+            path = `${this.baseImgUrl}${path}`
           } else if (!path.startsWith('http')) {
             path = `${this.baseUrl}/${path}`
           }
